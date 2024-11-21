@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <style>
+   .nubex1 {
+    font-weight: bold;
+   }
+   .nubex2 {
+    font-weight: bolder;
+   }
+   .nubex3 {
+    font-weight: 600;
+   }
+ body {
+     margin: 0;
+     background: url("/media/back.png") repeat;
+ }
+  </style>
+    <body>
+    <br><br><br><br><br><div class="shadow p-3 mb-8 bg-white rounded">
+        <h2>Logged out</h2>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                <a href="{% url 'login' %}">Login again</a>
+            </small>
+        </div>
+    </div><br><br><br><br><br><br><br><br><br><br><br><br>
+    </body>
+{% endblock %}

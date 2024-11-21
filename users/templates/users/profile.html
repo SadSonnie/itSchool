@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <style>
+   .nubex1 {
+    font-weight: bold;
+   }
+   .nubex2 {
+    font-weight: bolder;
+   }
+   .nubex3 {
+    font-weight: 600;
+   }
+ body {
+     margin: 0;
+     background: url("/media/back.png") repeat;
+ }
+  </style>
+    <body>
+    <div class="content-section shadow p-3 mb-8 bg-white rounded">
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="">
+            <div class="media-body">
+                <h2 class="account-heading">{{ user.username }}</h2>
+                <p>{{ user.email }}</p>
+            </div>
+        </div>
+        <form method="POST", enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile Info</legend>
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info shadow rounded" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <hr>
+        <div class="p-3 mb-2 bg-gradient-light text-white"></div>
+        <div class="p-3 mb-2 bg-gradient-light text-white"></div>
+    </div>
+    </body>
+{% endblock %}
+ </html>

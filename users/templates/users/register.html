@@ -1,0 +1,47 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <style>
+   .nubex1 {
+    font-weight: bold;
+   }
+   .nubex2 {
+    font-weight: bolder;
+   }
+   .nubex3 {
+    font-weight: 600;
+   }
+ body {
+     margin: 0;
+     background: url("/media/back.png") repeat;
+ }
+  </style>
+    <body>
+    <br><br><br><div class="container posts-content shadow p-3 mb-8 bg-white rounded">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Now</legend>
+                {{ user_form|crispy }}
+                {{ pr_form|crispy }}
+
+{#                {{ user_form.as_p }}#}
+{#                {{ profile_form.as_p }}#}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info shadow rounded" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have an account? <a href="{% url 'login' %}" class="ml-2">Sign In</a>
+            </small>
+        </div>
+    </div>
+        <div class="container">
+        <hr>
+        <div class="p-3 mb-2 bg-gradient-light text-white"></div>
+        <div class="p-3 mb-2 bg-gradient-light text-white"></div>
+    </div>
+    </body>
+{% endblock %}
